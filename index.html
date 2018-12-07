@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app = "IssueTracker">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title> Issue Tracker </title>
+  <!-- Bootstrap core CSS-->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin.css" rel="stylesheet">
+  <link href="css/project-view.css" rel= "stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+   <h3 style = "padding-left: 750px;color:white"> Issue Tracker Application </h3>
+
+   <loading> </loading>
+
+   <div class="container">
+     <ui-view>
+     </ui-view>
+   </div>
+
+   <script src="vendor/jquery/jquery.min.js"></script>
+   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+   <!-- Core plugin JavaScript-->
+   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+   <!-- Page level plugin JavaScript-->
+   <script src="vendor/datatables/jquery.dataTables.js"></script>
+   <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+   <!-- Custom scripts for all pages-->
+   <script src="js/sb-admin.min.js"></script>
+   <!-- Custom scripts for this page-->
+   <script src="js/sb-admin-datatables.min.js"></script>
+
+
+   <script src="angularjs/angular.js"></script>
+   <!-- <script src="angularjs/angular-ui-router.js"> </script> -->
+   <script src ="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.18/angular-ui-router.min.js"> </script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
+
+   <!--Main JS module -->
+   <script src = "src/issuetracker.js"></script>
+
+   <!-- Common JS module -->
+   <script src = "src/common/common.module.js"></script>
+   <script src = "src/common/loading/loading.component.js"> </script>
+   <script src = "src/common/loading/loading.interceptor.js"> </script>
+   <script src = "src/common/login.js"> </script>
+   <script src = "src/common/common.routes.js"> </script>
+   <script src = "src/common/services/login.services.js"> </script>
+   <script src = "src/common/services/authRedirectorService.js"> </script>
+   <script src = "src/common/services/currentUserService.js"> </script>
+   <script src = "src/common/auth.interceptor.js"> </script>
+
+   <!-- User JS module -->
+   <script src = "src/user/user.module.js"> </script>
+   <script src = "src/user/user.router.js"> </script>
+   <script src = "src/user/user.logout.js"> </script>
+   <script src = "src/user/user.service.js"> </script>
+   <script src = "src/user/dashboard.controller.js"> </script>
+   <script src = "src/user/project.controller.js"> </script>
+   <script src = "src/user/project/project.detail.controller.js"> </script>
+   <script src = "src/user/user.navbar.component.js"> </script>
+
+   <!-- Admin JS Module -->
+   <script src = "src/admin/admin.module.js"> </script>
+   <script src = "src/admin/admin.router.js"> </script>
+   <script src = "src/admin/admin.service.js"> </script>
+   <script src = "src/admin/admin.navbar.component.js"> </script>
+
+   <script src = "src/admin/admin.footer.component.js"> </script>
+   <script src = "src/admin/dashboard/admin.dashboard.js"> </script>
+   <script src = "src/admin/AssignIssue/issue.assignment.js"> </script>
+   <script src = "src/admin/AssignIssue/issue.edit.controller.js"> </script>
+   <script src = "src/admin/dashboard/admin.dashboard.js"> </script>
+   <script src = "src/admin/dashboard/project.view.controller.js"> </script>
+   <script src = "src/admin/register/register.project.controller.js"> </script>
+   <script src = "src/admin/register/register.user.js"> </script>
+   <script src = "src/admin/AssignProject/assign.project.js"> </script>
+</body>
+
+</html>

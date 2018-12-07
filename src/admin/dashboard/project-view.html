@@ -1,0 +1,36 @@
+<admin-navbar> </admin-navbar>
+
+<div class="content-wrapper">
+    <div class="container-fluid">
+      <h3 style = "color:white"> Project Detail </h3>
+
+      <div>
+        <h4 style = "text-align:center;color:blue" > {{ pvc.issue.issuetitle }} </h4>
+      </div>
+      <div style = "color:black">
+          <div> 
+              <p> Projct Name                : <span> {{ pvc.issue.projectname }} </span> </p>
+          <div>
+          <div> 
+              <p> Issue <Type></Type>: <span> {{ pvc.issue.issuetype }} </span> </p> 
+          </div>
+        <p> Assigned By: {{ pvc.issue.assignedby }} </p>
+        <p> Assigned To: {{ pvc.issue.assignedto }}
+        <p> Status: {{ pvc.issue.status }} </p>
+
+        <p ng-class="{
+              'color-red': pvc.issue.priority === 'high',
+              'color-blue': pvc.issue.priority === 'medium',
+              'color-green': pvc.issue.priority === 'low'}">
+              Priority: {{ pvc.issue.priority }} </p>
+        <p> Issue StartDate : {{ pvc.issue.startdate | date: 'mediumDate' }} </p>
+        <p> Approaximate Issue End Date : {{ pvc.issue.enddate | date: 'mediumDate'}} </p>
+
+        <p style="border:3px; border-style:solid; border-color:#FF0000"> Issue description: {{ pvc.issue.issuedescription }} </p>
+
+        <p> Last Modified: {{ pvc.issue.lastmodified | date: 'medium'}}
+      </div>
+  </div>
+</div>
+
+<common-footer> </common-footer>

@@ -1,0 +1,90 @@
+<admin-navbar> </admin-navbar>
+<!-- Navigation-->
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Tables</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-table"></i> Assign Issue </div>
+    </div>
+
+    <div>
+      <form name = "IssueAssignmentForm" novalidate>
+        <div class = "form-group">
+          <label for = "projects"> Project Name: </label>
+          <select class = "form-control" id = "projectname" ng-options = "project.projectname for project in iac.projects" ng-model = "iac.project" required>
+            <option value = ""> Select Project </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="employee">Select Employee:</label>
+          <select class="form-control" id="employee" ng-options = "up.usermail for up in iac.userproject| filter:{projectname: iac.project.projectname}"
+                  ng-model = "iac.user" required>
+            <option value = ""> Select Employee </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status">Status:</label>
+          <select class="form-control" id="status" ng-options  = "s.statustype for s in iac.status" ng-model = "iac.status_s" required>
+            <option value = ""> Select Status </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="status">Priority:</label>
+          <select class="form-control" id="priority" ng-options  = "p.prioritytype for p in iac.priority" ng-model = "iac.priority_p" required>
+            <option value = ""> Select Priority </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="issue-type">Issue Type:</label>
+          <select class="form-control" id="issuetype" ng-options = "it.issuetype for it in iac.issuetype"
+                  ng-model = "iac.issuetype_it" required>
+            <option value = ""> Select issue Type </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="issue-title">Issue Title:</label>
+          <input class="form-control" type="text" placeholder="Issue Title"
+                 name="issuetitle" ng-model = "iac.title" required>
+
+        </div>
+        <div class="form-group">
+          <label for="issue-detail">Issue Detail:</label>
+          <textarea rows= "4" class="form-control" type="text" placeholder="Issue Description"
+                 name="issuedescription" ng-model = "iac.desc" required> </textarea>
+        </div>
+        <div class="form-group">
+          <label for="start date">Start Date:</label>
+          <input class="form-control" type="date" placeholder="Start Date"
+                 name="start-date" ng-model = "iac.sdate" required>
+        </div>
+
+        <div class="form-group">
+          <label for="end date">End Date:</label>
+          <input class="form-control" type="date" placeholder="End Date"
+                 name="end-date"  ng-model = "iac.edate" required>
+        </div>
+
+        <button style= "margin-bottom:20px" type="submit" class="btn btn-primary" ng-disabled = "!IssueAssignmentForm.$valid" ng-click = "iac.assign()"> Assign </button>
+
+      </form>
+      <div class="alert alert-success" ng-if="iac.success">
+        <button type="button" class="close" ng-click="iac.switchBool('iac.success')">×</button>
+        <strong>Done!</strong> {{iac.successMessage}}
+      </div>
+      <div class="alert alert-warning" ng-if = "iac.error">
+        <button type="button" class="close" ng-click="iac.switchBool('iac.error')">×</button>
+        <strong>Sorry!</strong> {{iac.errorMessage}}
+      </div>
+</div>
+
+  <common-footer> </common-footer>

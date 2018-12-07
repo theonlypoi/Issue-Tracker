@@ -1,0 +1,67 @@
+<admin-navbar> </admin-navbar>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="#">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Tables</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-table"></i> Register User </div>
+    </div>
+
+    <div>
+      <form name = "ProjectRegForm" novalidate>
+        <div class = "form-group">
+          <label for = "User">User Name: </label>
+          <input class="form-control" type="text" placeholder="User Name"
+                   name="username" ng-model = "iac.username" required>
+
+        </div>
+
+        <div class="form-group">
+          <label for="mail">User Mail:</label>
+          <input class="form-control" type="text" placeholder="mail"
+                 name="usermail" ng-model = "iac.mail" required>
+        </div>
+
+
+        <div class="form-group">
+            <label for="password"> User Password:</label>
+            <input class="form-control" type="text" placeholder="Password"
+                   name="password" ng-model = "iac.password" required>
+        </div>
+
+        <div class = "form-group">
+          <label for = "role"> User Role: </label>
+          <select class = "form-control" id = "projectname" ng-options = "r.roletype for r in iac.roles" ng-model = "iac.userrole" required>
+            <option value = ""> Select Role </option>
+          </select>
+       </div>
+
+        <div class="form-group">
+          <label for="active">Active:</label>
+          <select class="form-control" id="active" ng-model = "iac.active" required>
+            <option value = ""> Active </option>
+            <option value = "true"> True </option>
+            <option value = "false"> False </option>
+          </select>
+        </div>
+
+        <button style="margin-bottom:20px" type="submit" class="btn btn-primary" ng-disabled = "!ProjectRegForm.$valid"
+                ng-click = "iac.registerUser()"> Register User </button>
+    </form>
+      <div class="alert alert-success" ng-if="iac.success">
+        <button type="button" class="close" ng-click="iac.switchBool()">×</button>
+        <strong>Done!</strong> {{iac.successMessage}}
+      </div>
+      <div class="alert alert-warning" ng-if = "iac.error">
+        <button type="button" class="close" ng-click="iac.switchBool()">×</button>
+        <strong>Sorry!</strong> {{iac.errorMessage}}
+      </div>
+</div>
+<common-footer> </common-footer>

@@ -1,0 +1,56 @@
+<!-- Navbar -->
+<admin-navbar> </admin-navbar>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="admin.dashboard">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Tables</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-table"></i> Assign Project </div>
+    </div>
+
+    <div>
+      <form name = "ProjectAssignmentForm" novalidate>
+        <div class = "form-group">
+          <label for = "projects"> Project Name: </label>
+          <select class = "form-control" id = "projectname" ng-options = "project.projectname for project in iac.projects" ng-model = "iac.project" required>
+            <option value = ""> Select Project </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="employee">Select Employee:</label>
+          <select class="form-control" id="employee" ng-options = "up.usermail for up in iac.users"
+                  ng-model = "iac.user" required>
+            <option value = ""> Select Employee </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="active">Active:</label>
+          <select class="form-control" id="active" ng-model = "iac.active" required>
+            <option value = ""> Active </option>
+            <option value = "true"> True </option>
+            <option value = "false"> False </option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled = "!ProjectAssignmentForm.$valid" ng-click = "iac.assignProject()"> Assign Project </button>
+      </form>
+      <div class="alert alert-success" ng-if="iac.success">
+        <button type="button" class="close" ng-click="iac.switchBool()">×</button>
+        <strong>Done!</strong> {{iac.successMessage}}
+      </div>
+      <div class="alert alert-warning" ng-if = "iac.error">
+        <button type="button" class="close" ng-click="iac.switchBool()">×</button>
+        <strong>Sorry!</strong> {{iac.errorMessage}}
+      </div>
+</div>
+
+<common-footer> </common-footer>

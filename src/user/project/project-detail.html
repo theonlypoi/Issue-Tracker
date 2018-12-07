@@ -1,0 +1,59 @@
+
+<!-- Navigation-->
+<user-navbar> </user-navbar>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <!-- Breadcrumbs-->
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="user.dashboard">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item active">Tables</li>
+    </ol>
+    <!-- Example DataTables Card-->
+    <div class="card mb-3">
+      <div class="card-header">
+        <i class="fa fa-table"></i> Working Projects </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>Project Name</th>
+                <th>Client</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Project Name</th>
+                <th>Client</th>
+                <th>Description</th>
+              </tr>
+            </tfoot>
+            <tbody>
+               <tr ng-repeat = "data in pdc.projects">
+                 <td> {{ data.projectname }} </td>
+                 <td> {{ data.client }} </td>
+                 <td> {{ data.description}} </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!-- <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div> -->
+    </div>
+  </div>
+  <!-- /.container-fluid-->
+  <!-- /.content-wrapper-->
+  <common-footer> </common-footer>
+</div>
+
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="js/sb-admin-datatables.min.js"></script>

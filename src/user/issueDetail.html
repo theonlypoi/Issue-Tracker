@@ -1,0 +1,56 @@
+<user-navbar> </user-navbar>
+
+<div class="content-wrapper">
+  <div class="container-fluid">
+  <h3 style = "color:white"> Project Detail </h3>
+
+  <div>
+    <h4 style = "text-align:center;color:blue" > {{ ProjectCtrl.project.issuetitle }} </h4>
+  </div>
+  <div style = "color:black">
+    <p> Projct Name: {{ ProjectCtrl.project.projectname }} </p>
+    <p> Issue Type: {{ ProjectCtrl.project.issuetype }} </p>
+    <p> Assigned By: {{ ProjectCtrl.project.assignedby }} </p>
+    <p> Status: {{ ProjectCtrl.project.status }} </p>
+
+    <p ng-class="{
+          'color-red': ProjectCtrl.project.priority === 'high',
+          'color-blue': ProjectCtrl.project.priority === 'medium',
+          'color-green': ProjectCtrl.project.priority === 'low'}">
+          Priority: {{ ProjectCtrl.project.priority }} </p>
+    <p> Issue StartDate : {{ ProjectCtrl.project.startdate | date: 'mediumDate' }} </p>
+    <p> Approaximate Issue End Date : {{ ProjectCtrl.project.enddate | date: 'mediumDate'}} </p>
+
+    <p style="border:3px; border-style:solid; border-color:#FF0000"> Issue description: {{ ProjectCtrl.project.issuedescription }} </p>
+
+    <p> Last Modified: {{ ProjectCtrl.project.lastmodified | date: 'medium'}} </p>
+
+    <form  name = "StatusEditForm" novalidate>
+      <div class="form-group">
+        <label for="status">Status:</label>
+        <select class="form-control" id="status" ng-options = "s.statustype for s in ProjectCtrl.status" ng-model = "ProjectCtrl.status_s" required>
+          <option value = ""> Select Status </option>
+        </select>
+      </div>
+    </form>
+
+    <div class="alert alert-success" ng-if="ProjectCtrl.success">
+      <button type="button" class="close" ng-click="ProjectCtrl.switchBool()">×</button>
+      <strong>Done!</strong> {{ProjectCtrl.successMessage}}
+    </div>
+    <div class="alert alert-warning" ng-if = "ProjectCtrl.error">
+      <button type="button" class="close" ng-click="ProjectCtrl.switchBool()">×</button>
+      <strong>Sorry!</strong> {{ProjectCtrl.errorMessage}}
+    </div>
+
+    <button class = "btn btn-primary" ng-disabled = "!StatusEditForm.$valid" ng-click = "ProjectCtrl.changeStatus();"> Change Status </button>
+  </div>
+  </div>
+</div>
+<common-footer> </common-footer>
+<script src="vendor/datatables/jquery.dataTables.js"></script>
+<script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="js/sb-admin-datatables.min.js"></script>

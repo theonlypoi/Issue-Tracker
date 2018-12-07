@@ -1,0 +1,59 @@
+<user-navbar> </user-navbar>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a ui-sref="user.dashboard">Dashboard</a>
+        </li>
+        <li class="breadcrumb-item active">Tables</li>
+      </ol>
+      <!-- Example DataTables Card-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Assigned Issues </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Issue Type</th>
+                  <th>Title</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Complete Details</th>
+                </tr>
+              </thead>
+              <tfoot>
+                <tr>
+                  <th>Project Name</th>
+                  <th>Issue Type</th>
+                  <th>Title</th>
+                  <th>Status</th>
+                  <th>Priority</th>
+                  <th>Complete Details</th>
+                </tr>
+              </tfoot>
+              <tbody>
+                 <tr ng-repeat = "data in DashboardCtrl.allIssues">
+                   <td> {{ data.projectname }} </td>
+                   <td> {{ data.issuetype }} </td>
+                   <td> {{ data.issuetitle}} </td>
+                   <td> {{ data.status }}</td>
+                   <td> {{ data.priority }}</td>
+                   <td><button ui-sref = "user.issue({id:$index})"> View </button></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+  <common-footer> </common-footer>
+
+
+  </div>

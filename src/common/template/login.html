@@ -1,0 +1,42 @@
+<link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom fonts for this template-->
+<link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Custom styles for this template-->
+<link href="../../css/sb-admin.css" rel="stylesheet">
+
+<div class="container" ng-controller="Login as $ctrl">
+    <div class="card card-login mx-auto mt-5">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+            <form name="loginForm" novalidate>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp"
+                           placeholder="Enter email" name="email" ng-model="$ctrl.email" required>
+                    <span ng-if="loginForm.email.$invalid && loginForm.email.$touched" class="help-block">
+                        Must be a valid email address: handle@domain format
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password"
+                           name="password" ng-model="$ctrl.password" ng-minlength="3" ng-maxlength="15" required>
+
+                    <span ng-if="(loginForm.password.$error.minlength || loginForm.password.$error.required) &&                                     loginForm.password.$touched" class="help-block"> Password is too short.</span>
+                    <span ng-if="(loginForm.password.$error.maxlength) && loginForm.password.$touched" class="help-block">
+                        Password is too long.</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid" ng-click="$ctrl.login()">
+                    Submit </button>
+
+                <p> {{ $ctrl.error }}</p>
+
+            </form>
+            <div class="text-center">
+                <a class="d-block small" ui-sref = "home.change-password">Forgot Password?</a>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Bootstrap core JavaScript-->
